@@ -1,0 +1,47 @@
+body {
+	font-size: 20px;
+}
+.container {
+	margin: 50px auto;
+	width: 400px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+table {
+	display: none;
+	width: 100%;
+	border-collapse: collapse;
+	border: 5px solid #193a04;
+}
+
+caption {
+	color: blue;
+}
+
+td {
+	padding: 20px;
+	background-color: #b9ed97;
+	border: 2px solid black;
+	transition: all 0.15s ease-in;
+}
+td:hover {
+	cursor: pointer;
+	background-color: #447f1d;
+}
+.mine {
+	background-color: red;
+	background-image: url("../img/forbidden.png");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.miss {
+	background-color: yellow;
+	background-image: url("../img/check.png");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.result {
+	//
+}
