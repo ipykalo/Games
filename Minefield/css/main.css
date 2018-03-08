@@ -10,7 +10,7 @@ body {
 }
 
 table {
-	display: none;
+	opacity: 0;
 	width: 100%;
 	border-collapse: collapse;
 	border: 5px solid #193a04;
@@ -43,5 +43,5 @@ td:hover {
 	background-position: center;
 }
 .result {
-	//
+	opacity: 0;
 }
