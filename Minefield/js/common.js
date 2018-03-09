@@ -3,24 +3,32 @@ $(document).ready(function() {
 	let lostSound = document.querySelector("#loseSound");
 	let playGame = confirm("Do you want to play a game?");
 	let clic = 0;
-	let lose = 3;
+	let lose = 5;
 
 	if (playGame) {
 		game();
 	} else {
-		alert("Thank You!");
+		alert("Good bye!");
 	}
 
 	function game() {
+		let miss;
 		$("table").fadeTo(3000, 1);
 		$(".result").fadeTo(3000, 1);
 		let arrayCell = $("td");
 		let randomBombSet = bombSet(arrayCell);
-		$("#bomb").html(randomBombSet.length);
-		console.log(randomBombSet);
 
-		arrayCell.click(function() {
+		$("#bomb").html(randomBombSet.length);
+		miss = arrayCell.length - randomBombSet.length - clic;
+
+		arrayCell.click(function(event) {
 			$(this).attr("class", "miss");
+			--miss;
+
+			if (miss == 0) {
+				alert("you winn");
+			}
+
 			for (let i in randomBombSet) {
 				if (
 					$(this)[0].offsetTop == randomBombSet[i].offsetTop &&
@@ -33,7 +41,7 @@ $(document).ready(function() {
 					$("#lose").html(lose);
 				}
 			}
-			if (clic == 3) {
+			if (clic == 5) {
 				lostSound.play();
 				$("#lose").html("You lost!");
 				$("table").fadeOut(5000, 0, function() {
