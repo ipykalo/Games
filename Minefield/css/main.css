@@ -1,21 +1,24 @@
 body {
 	font-size: 20px;
 }
-.container {
+div.container {
 	margin: 50px auto;
 	width: 600px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
-.box {
+div.box {
 	width: 600px;
-	height: 500px;
+	display: none;
+}
+.box img {
+	width: 100%;
 }
 
 table {
 	opacity: 0;
-	width: 100%;
+	width: 600px;
 	border-collapse: collapse;
 	border: 5px solid #193a04;
 }
@@ -48,10 +51,4 @@ td:hover {
 }
 .result {
 	display: none;
-}
-.game-over {
-	background-image: url("../img/game-over.jpg");
-	background-repeat: no-repeat;
-	background-size: 100%;
-	background-position: top;
 }

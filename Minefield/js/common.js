@@ -1,11 +1,22 @@
 $(document).ready(function() {
+	let boom = document.querySelector("#boom");
+	let lostSound = document.querySelector("#loseSound");
 	let playGame = confirm("Do you want to play a game?");
 	let clic = 0;
+	let lose = 3;
 
 	if (playGame) {
+		game();
+	} else {
+		alert("Thank You!");
+	}
+
+	function game() {
 		$("table").fadeTo(3000, 1);
+		$(".result").fadeTo(3000, 1);
 		let arrayCell = $("td");
 		let randomBombSet = bombSet(arrayCell);
+		$("#bomb").html(randomBombSet.length);
 		console.log(randomBombSet);
 
 		arrayCell.click(function() {
@@ -15,16 +26,26 @@ $(document).ready(function() {
 					$(this)[0].offsetTop == randomBombSet[i].offsetTop &&
 					$(this)[0].offsetLeft == randomBombSet[i].offsetLeft
 				) {
+					boom.play();
 					$(this).attr("class", "mine");
 					++clic;
-					playGame = false;
+					--lose;
+					$("#lose").html(lose);
 				}
 			}
 			if (clic == 3) {
-				$("table").fadeOut(3000, 0);
-				$(".box").attr("class", "game-over");
+				lostSound.play();
+				$("#lose").html("You lost!");
+				$("table").fadeOut(5000, 0, function() {
+					$(".result").fadeOut(3000, 0);
+					$(".box").fadeTo(5000, 1, playAgain);
+				});
 			}
 		});
+	}
+
+	function playAgain() {
+		location.reload();
 	}
 
 	function bombSet(cell) {
