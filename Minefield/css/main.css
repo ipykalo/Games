@@ -3,10 +3,14 @@ body {
 }
 .container {
 	margin: 50px auto;
-	width: 400px;
+	width: 600px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+.box {
+	width: 600px;
+	height: 500px;
 }
 
 table {
@@ -43,5 +47,11 @@ td:hover {
 	background-position: center;
 }
 .result {
-	opacity: 0;
+	display: none;
+}
+.game-over {
+	background-image: url("../img/game-over.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: top;
 }

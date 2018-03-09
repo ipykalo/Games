@@ -17,18 +17,15 @@ $(document).ready(function() {
 				) {
 					$(this).attr("class", "mine");
 					++clic;
-					if (clic == 3) {
-						console.log("lose");
-						playGame = false;
-					}
+					playGame = false;
 				}
 			}
+			if (clic == 3) {
+				$("table").fadeOut(3000, 0);
+				$(".box").attr("class", "game-over");
+			}
 		});
-	} /*else if (clic == 3) {
-		$("table").fadeOut(3000, 0.1);
-		console.log("lose");
-		playGame = false;
-	}*/
+	}
 
 	function bombSet(cell) {
 		let randomCell = [];
